@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1c20; /* Dark background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container layout */
+.container {
+    display: flex;
+    background: linear-gradient(to right, #1a1c20, #2f343a); /* Dark gradient background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    position: relative;
+    /* Glow Effect */
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.7), 0 0 40px rgba(243, 156, 18, 0.5), 0 0 60px rgba(243, 156, 18, 0.3); /* #f39c12 glow */
+}
+
+/* Glow effect on container */
+.container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #f39c12, transparent);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+/* Left section */
+.register-left {
+    background-color: #263238; /* Dark teal/blue-gray */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: #fff;
+}
+
+.register-left h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #f39c12; /* Update welcome text to #f39c12 */
+    text-shadow: 0 0 15px #f39c12; /* Text glow */
+}
+
+.register-left p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Right section */
+.register-right {
+    flex: 1;
+    padding: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Form input styles */
+form input {
+    width: 93.4%;
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    background-color: #2f343a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    background-color: #2f343a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.8);
+}
+
+/* Submit button */
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 0 15px rgba(243, 156, 18, 0.8);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+    background-color: #d8870e;
+    box-shadow: 0 0 30px rgba(243, 156, 18, 1);
+}
+
+/* Flash messages */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Link to login */
+p {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+p a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

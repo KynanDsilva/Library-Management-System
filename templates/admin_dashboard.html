@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-item">
+                <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="{{ url_for('user_management') }}">User Management</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="{{ url_for('add_book') }}">Add Book</a>
+            </div>
+            <div class="sidebar-item logout-btn">
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Admin Dashboard</h1>
+
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flash-messages" id="flash-messages">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
+            <!-- Dashboard Statistics -->
+            <div class="stats">
+                <h3>Dashboard Statistics</h3>
+                <p>Total Books: {{ total_books }}</p>
+                <p>Total Users: {{ total_users }}</p>
+                <p>Total Categories: {{ total_categories }}</p>
+            </div>
+
+            <!-- Search Form -->
+            <form method="GET" action="{{ url_for('admin_dashboard') }}" class="search-form">
+                <input type="text" name="search" placeholder="Search for a book">
+                <button type="submit">Search</button>
+            </form>
+
+            <!-- Book List -->
+            <h3>Books</h3>
+            <ul class="book-list">
+                {% for book in books %}
+                <li>
+                    {{ book.title }} by {{ book.author }} ({{ book.category }})
+                    <a href="{{ url_for('edit_book', book_id=book.id) }}">Edit</a>
+                    <a href="{{ url_for('delete_book', book_id=book.id) }}">Delete</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <!-- User Management -->
+            <h3>Manage Users</h3>
+            <ul class="user-list">
+                {% for user in users %}
+                <li>
+                    {{ user.name }} ({{ user.email }})
+                    <a href="{{ url_for('delete_user', user_id=user.id) }}">Delete</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Hide flash messages after 3 seconds (3000 milliseconds)
+        setTimeout(function () {
+            const flashMessages = document.getElementById('flash-messages');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+            }
+        }, 1000); // 1 seconds
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1c20;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Profile Card */
+.profile-container {
+    text-align: center;
+    background-color: #2f343a;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    border: 2px solid #f39c12;
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.6);
+}
+
+/* Profile Title */
+.profile-container h2 {
+    color: #f39c12;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* Profile Details */
+.profile-container p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.user-icon {
+    font-size: 80px;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #f39c12;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}

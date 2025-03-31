@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Welcome to Your Dashboard</h1>
+    </div>
+
+
+
+    <!-- Container for sidebar and main content -->
+    <div class="container">
+
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <a href="{{ url_for('profile') }}">View Profile</a>
+            <a href="#">Search Books</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+
+
+
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flash-messages" id="flash-messages">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <!-- Available Library Books Section -->
+            <div class="content-box">
+                <h2>Available Books</h2>
+
+                <!-- Search Bar -->
+                <form method="GET" class="search-form" action="{{ url_for('user_dashboard') }}">
+                    <input type="text" name="search" placeholder="Search for books...">
+                    <button type="submit">Search</button>
+                </form>
+
+                <ul>
+                    {% if books %}
+                    {% for book in books %}
+                    <li>{{ book.title }} by {{ book.author }} ({{ book.category }})</li>
+                    {% endfor %}
+                    {% else %}
+                    <li>No books available in the library.</li>
+                    {% endif %}
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Library Management System &copy; 2025</strong></p>
+    </footer>
+
+    <script>
+        // Hide flash messages after 3 seconds (3000 milliseconds)
+        setTimeout(function () {
+            const flashMessages = document.getElementById('flash-messages');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+            }
+        }, 1000); // 1 seconds
+    </script>
+
+</body>
+
+</html>

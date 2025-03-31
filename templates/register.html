@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="register-left">
+            <h1>Welcome!</h1>
+            <p>Join us today for a better experience.</p>
+        </div>
+        <div class="register-right" id="flask-messages">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <form action="{{ url_for('register') }}" method="POST">
+                <input type="text" name="name" placeholder="Name" required><br>
+                <input type="email" name="email" placeholder="Email" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+                <select name="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select><br>
+                <button type="submit">Register</button>
+            </form>
+            <!-- Link to Login Page -->
+            <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Hide flash messages after 3 seconds (3000 milliseconds)
+        setTimeout(function () {
+            const flashMessages = document.getElementById('flash-messages');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+            }
+        }, 1000); // 1 seconds
+    </script>
+
+</body>
+
+</html>

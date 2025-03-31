@@ -1,0 +1,255 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1c20;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container to hold Sidebar and Main Content */
+.container {
+    display: flex;
+    flex: 1;
+    margin-top: 20px;
+    height: calc(100vh - 100px); /* Adjust height for the header and footer */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #263238;
+    width: 240px;
+    padding: 20px;
+    height: 100%; /* Full height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar Items */
+.sidebar-item {
+    margin-bottom: 20px;
+}
+
+.sidebar-item a {
+    display: block;
+    color: #fff;
+    padding: 12px 0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+.sidebar-item a:hover {
+    color: #f39c12;
+}
+
+/* Logout Button */
+.logout-btn {
+    display: block;
+    color: #fff;
+    padding: 12px 0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    background-color: #c0392b;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: auto; /* Push logout button to the bottom */
+    margin-bottom: 35px; /* Ensure space at the bottom */
+}
+
+.logout-btn:hover {
+    background-color: #e74c3c;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 260px; /* Avoid overlap with sidebar */
+    padding: 30px;
+    background-color: #1a1c20;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Flash Messages */
+.flash-messages {
+    list-style: none;
+    padding: 0;
+}
+
+.flash-messages li {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Stats Box */
+.stats {
+    background-color: #2f343a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    font-size: 1rem;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-form button {
+    padding: 8px 16px;
+    background-color: #f39c12;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #e67e22;
+}
+
+/* Book and User Lists */
+.book-list, .user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* List Items */
+.book-list li, .user-list li {
+    background-color: #2f343a;
+    color: #fff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* Links in Book and User Lists */
+.book-list a, .user-list a {
+    margin-left: 10px;
+    color: #f39c12;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Button Style */
+.book-list li a, .user-list li a {
+    padding: 8px 16px;
+    background-color: #444;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #f39c12;
+    margin-left: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.book-list li a:hover, .user-list li a:hover {
+    background-color: #f39c12;
+    color: #1a1c20;
+}
+
+/* Ensure Buttons are aligned to the right */
+.book-list li, .user-list li {
+    display: flex;
+    align-items: center;
+}
+
+.book-list a, .user-list a {
+    margin-left: auto;
+}
+
+/* Book List Item Specific Styles */
+.book-list li {
+    background-color: #2f343a;
+}
+
+.book-list a {
+    margin-left: auto;
+}
+
+/* User List Item Specific Styles */
+.user-list li {
+    background-color: #374047;
+}
+
+/* Remove Extra Margin */
+.book-list li a, .user-list li a {
+    margin-left: 10px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1c20;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-top: auto; /* Keep footer at the bottom */
+}
+
+/* Additional Refinements */
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Optimize Responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative; /* No longer fixed */
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
